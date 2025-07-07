@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Small Circular Logo</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .logo-container {
+        position: relative;
+        width: min(60vw, 200px);
+        height: min(60vw, 200px);
+      }
+
+      .center-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 2;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .circular-text {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: rotateText 10s linear infinite;
+        pointer-events: none;
+      }
+
+      .circular-text span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 0 0;
+        font-family: Arial, sans-serif;
+        font-size: calc(6px + 0.7vw); /* responsive and smaller */
+        color: #222;
+        text-transform: uppercase;
+        white-space: pre;
+      }
+
+      @keyframes rotateText {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-container">
+      <img src="img/Logo.png" alt="Center Image" class="center-image" />
+      <div class="circular-text" id="circularText"></div>
+    </div>   
+    <script src="assets/js/script.js"></script>
+
+  </body>
+</html>
